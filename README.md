@@ -4,7 +4,7 @@ The Rack::OptionalHtml middleware handles extensionless pages on a Middleman ser
 
 If there is no match for the url, it will try the same url with some different versions of a .html suffix.
 
-The effect is similar to using the Directory Index extension, but is less intrusive in that it will not introduce extra directories, rename the actual page to index.html, etc. Hopefully (but not tested yet) it will also make it easier to link to images.
+The effect is similar to using the Directory Index extension, but is less intrusive in that it will not introduce extra directories, rename the actual page to index.html, etc. It also makes it possible to call images by filename only.
 
 Important: It will only have effect on the Middleman development server. In order to get the same effect on the sharp site, you will need to configure that server to do the same.
 
