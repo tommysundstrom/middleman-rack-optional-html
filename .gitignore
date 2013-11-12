@@ -1,2 +1,6 @@
 # Ignore .idea
 /.idea
+
+
+# At least for now, ignore the README from rdoc
+README.rdoc
