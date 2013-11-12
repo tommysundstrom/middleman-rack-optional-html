@@ -35,23 +35,23 @@ module Rack
   #       :root => "/path/to/your/source/directory/",
   #       :urls => %w[/]
   #
-
+  # Please note that this is an early version. It seams to work as intended, but is not thoroughly tested yet.
 
   class OptionalHtml
 
     def initialize(app, options)
-          @app = app
-          @try = ['', '.html', 'index.html', '/index.html']
-        end
+        @app = app
+        @try = ['', '.html', 'index.html', '/index.html']
+      end
 
-        def call(env)
-          orig_path = env['PATH_INFO']
-          found = nil
-          @try.each do |path|
-            resp = @app.call(env.merge!({'PATH_INFO' => orig_path + path})) # Using Middleman’s server
-            break if 404 != resp[0] && found = resp
-          end
-          found or @app.call(env.merge!('PATH_INFO' => orig_path))
+      def call(env)
+        orig_path = env['PATH_INFO']
+        found = nil
+        @try.each do |path|
+          resp = @app.call(env.merge!({'PATH_INFO' => orig_path + path})) # Using Middleman’s server
+          break if 404 != resp[0] && found = resp
         end
+        found or @app.call(env.merge!('PATH_INFO' => orig_path))
       end
     end
+  end
