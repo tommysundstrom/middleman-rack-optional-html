@@ -1,0 +1,4 @@
+Based on the try_static script from the rack/rack-contrib gem
+https://github.com/rack/rack-contrib/blob/master/lib/rack/contrib/try_static.rb
+
+Middlemanadaption by Tommy Sundström (tommy@heltenkelt.se)
