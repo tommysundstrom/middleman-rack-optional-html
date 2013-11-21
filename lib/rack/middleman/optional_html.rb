@@ -41,7 +41,7 @@ module Rack
 
     def initialize(app, options)
         @app = app
-        @try = ['', '.html', 'index.html', '/index.html']
+        @try = [ '', '.html', 'index.html', '/index.html']
       end
 
       def call(env)
@@ -49,7 +49,8 @@ module Rack
         found = nil
         @try.each do |path|
           resp = @app.call(env.merge!({'PATH_INFO' => orig_path + path})) # Using Middleman’s server
-          break if 404 != resp[0] && found = resp
+          break if 404 != resp[0] && found = resp   
+                # if not a 404, break and set found to resp
         end
         found or @app.call(env.merge!('PATH_INFO' => orig_path))
       end
