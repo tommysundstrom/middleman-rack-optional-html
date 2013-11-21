@@ -1,5 +1,7 @@
 # Readme
 
+* There has been problems reported with getting this gem activated. I'll look in to it in a few days, when work is not so crazy. *
+
 The Rack::OptionalHtml middleware handles extensionless pages on a Middleman server
 
 If there is no match for the url, it will try the same url with some different versions of a .html suffix.
