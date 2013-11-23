@@ -1,4 +1,4 @@
-# Extensionless pages when developing a middleman site
+# Extensionless pages when developing a Middleman site
 
 **There has been problems reported with getting this gem activated. I'll look in to it in a few days, when work is not so crazy.**
 
