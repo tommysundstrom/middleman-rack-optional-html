@@ -1,8 +1,6 @@
 # Extensionless pages when developing a Middleman site
 
-**There has been problems reported with getting this gem activated. I'll look in to it in a few days, when work is not so crazy.**
-
-Middleman offers one way to get pretty URLs – URLs without the `.html` suffix – through [Directory Indexes](http://middlemanapp.com/pretty-urls/). This is done by replacing the file with a directory, and making the file the index.html document of that directory. 
+Middleman offers one way to get pretty URLs – URLs without the `.html` suffix – through [Directory Indexes](http://middlemanapp.com/pretty-urls/). This is done by replacing the file with a directory, and making the file the index.html document of that directory.
 
 In most cases, Directory Indexes is the simplest and most Middleman-ish way to go. 
 
