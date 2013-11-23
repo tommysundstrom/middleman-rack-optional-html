@@ -32,7 +32,7 @@ If there is no match for the requested url, it will try the same url with some d
 
 To use, add
 
-`gem "optional_html"`
+`gem "optional_html", :git => 'https://github.com/tommysundstrom/middleman-rack-optional-html.git'`
 
 to your Gemfile and run `build install`
 
