@@ -9,13 +9,24 @@ But sometimes an alternative solution is needed. For me, the problem was that I 
 ## Using the web server to get rid of the extension
 An alternative way, is to let the web server handle this. 
 
-For example, on an Apache server, add this to the `.htaccess` file:
+**Apache**
+
+Add this to the `.htaccess` file
 
 `Options +MultiViews` ([Documentation](http://httpd.apache.org/docs/current/content-negotiation.html#negotiation for some documentation)).
  
 Other ways to achieve the same thing are to set it in the `httpd.conf` or to use redirects in the `.htaccess` file.
 
-I have no experience with other types of servers, but I believe this possibility exists on most of them. On an Rack based server (like Sinatra or Ruby on Rails) I think that [TryStatic]( https://github.com/rack/rack-contrib/blob/master/lib/rack/contrib/try_static.rb), on which OptionalHtml is based, is a good way to do this.
+**Nginx**
+
+Add these two lines within your server block
+
+```nginx
+location / { try_files $uri.html $uri/index.html /fallback.html; }
+location = /fallback.html { }
+```
+
+On an Rack based server (like Sinatra or Ruby on Rails) I think that [TryStatic]( https://github.com/rack/rack-contrib/blob/master/lib/rack/contrib/try_static.rb), on which OptionalHtml is based, is a good way to do this.
 
 As long as internal links in your source documents links to URL **with** the `.html` extension, you can now develop the site as usual. The only thing you need to watch out for, is that a URL like `http://www.domain.com/something`, may (depending on server configuration) point to `http://www.domain.com/something.html`, not `http://www.domain.com/something/index.html`, so avoid mixing files and directories with the same name. 
 
