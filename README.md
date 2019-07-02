@@ -38,9 +38,7 @@ In `config.rb` add
 
 ```
 require "rack/middleman/optional_html"
-use ::Rack::OptionalHtml,
-   :root => "/path/to/your/source/directory/",
-   :urls => %w[/]
+use ::Rack::OptionalHtml, {}
 ```
 
 Please note that this is an early version. It seams to work as intended, but is not thoroughly tested yet.
